@@ -1,0 +1,11 @@
+zoom:
+    parent: camera name
+    required: no
+    type: number
+    default: 15
+    description: Sets the zoom level of the view, in standard [Web Mercator](http://en.wikipedia.org/wiki/Web_Mercator) zoom levels.
+    example: |
+        ```yaml
+        camera1:
+            zoom: 14
+        ```

@@ -1,0 +1,12 @@
+active:
+    required: no
+    type: boolean
+    allowed-values: [true, false]
+    default: none
+    description: |
+        Sets the camera which provides the active view of the map when it is first loaded. If multiple cameras are defined, only one may be active at a time. If multiple cameras are set as `active: true`, the behavior will be unpredictable (see the [yaml#mappings](yaml.md#mappings) entry). The [JavaScript API](Javascript-API.md) can be used to [get](Javascript-API.md#getactivecamera) or [set](Javascript-API.md#setactivecamera_string_-camera) the active camera.
+    example: |
+        ```yaml
+        camera1:
+            active: false
+        ```

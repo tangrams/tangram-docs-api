@@ -1,0 +1,13 @@
+focal_length:
+    parent: camera
+    required: no
+    types: [number, stops]
+    applies_to: perspective
+    units: none
+    default: [[16, 2], [17, 2.5], [18, 3], [19, 4], [20, 6]]
+    description: Sets the amount of vertical exaggeration in the z-plane. Changes the apparent height of extruded elements. Lower values = more exaggeration. Also see `fov`.
+    example: |
+        ```yaml
+        camera1:
+            focal_length: [[16, 2], [17, 2.5], [18, 3], [19, 4], [20, 6]]
+        ```

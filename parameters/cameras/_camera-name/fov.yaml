@@ -1,0 +1,12 @@
+fov:
+    required: no
+    types: number
+    units: degrees
+    applies_to: perspective
+    description: |
+        Sets the "field of view" of the camera, in degrees. Field of view has an inverse relationship with `focal_length`: higher values cause more exaggeration. If both are set, `focal_length` will take precedence over `fov`.
+    example: |
+        ```yaml
+        camera1:
+            fov: 80
+        ```

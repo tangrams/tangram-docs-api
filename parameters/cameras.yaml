@@ -1,0 +1,20 @@
+cameras:
+    name: cameras
+    parent: scene
+    children: [_camera-name]
+    required: no
+    keyword: yes
+    since-version: 0.0.1
+    description: The `cameras` element is a required top-level element in the [scene file](Scene-file.md). Individual cameras are defined by a [camera name](#camera-name) under this element.
+    address: cameras
+    examples:
+        - |
+            ```yaml
+            cameras:
+                camera1:
+                    type: perspective
+                camera2:
+                    type: perspective
+                overview:
+                    type: isometric
+            ```

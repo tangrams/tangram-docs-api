@@ -1,0 +1,8 @@
+sources:
+    name: url
+    parent: _source-name
+    type: string
+    required: yes
+    keyword: yes
+    description: Specifies the source’s URL. No default.
+    address: ^sources:(\\w|\\_|\\-|\/)+:url$

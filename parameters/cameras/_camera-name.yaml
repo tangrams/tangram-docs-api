@@ -1,0 +1,16 @@
+camera-name:
+    parent: cameras
+    children: [type, position, zoom, active]
+    required: yes
+    type: string
+    default: none
+    description: Required _string_ (except in the case of [`camera`](cameras.md#camera)). Can be anything except the [reserved keywords](yaml.md#reserved-keywords). No default.
+    example-lang: yaml
+    example: |
+        cameras:
+            myCamera:
+                type: perspective
+            camera2:
+                type: perspective
+            lock-off:
+                type: perspective

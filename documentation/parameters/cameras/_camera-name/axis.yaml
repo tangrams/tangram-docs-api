@@ -1,0 +1,14 @@
+parameter:
+    name: axis
+    required: no
+    types: [[number, number]]
+    units: none
+    applies_to: isometric
+    default: [0, 1]
+    description: Sets the `[x, y]` direction and amount of the isometric camera's vertical axis, which controls controls how extruded objects' height is displayed. A value of `1` equals a scale of 100%. Larger values produce more scaling.
+    example: |
+        ```yaml
+        isometric-cam:
+        type: isometric
+        axis: [1, .5]
+        ```

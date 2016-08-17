@@ -1,0 +1,8 @@
+parameter:
+    name: sources
+    parent: scene
+    children: [_sources-name]
+    required: yes
+    keyword: yes
+    description: The `sources` element is a required top-level element in a Tangram scene file. It declares the beginning of a sources block. It takes only one kind of parameter' the source name. Any number of source names can be declared.
+    address: sources

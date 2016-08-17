@@ -1,0 +1,12 @@
+parameter:
+    name: position
+    parent: camera name
+    required: no
+    type: [[lat, lng], [lat, lng, zoom]]
+    default: none
+    description: Sets the longitude and latitude of the camera, in degrees.
+    example: |
+        ```yaml
+        camera1:
+            position: [-73.97297501564027, 40.76434821445407]
+        ```

@@ -1,0 +1,17 @@
+parameter:
+    name: type
+    parent: camera name
+    required: yes
+    allowed-values: [perspective, isometric, flat]
+    default: none
+    description: Describes the type of the camera.
+    example: |
+        ```yaml
+        cameras:
+            camera1:
+                type: perspective
+            camera2:
+                type: isometric
+            overview:
+                type: flat
+        ```

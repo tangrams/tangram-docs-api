@@ -1,4 +1,5 @@
-type:
+parameter:
+    name: type
     parent: camera name
     required: yes
     allowed-values: [perspective, isometric, flat]

@@ -1,4 +1,5 @@
-position:
+parameter:
+    name: position
     parent: camera name
     required: no
     type: [[lat, lng], [lat, lng, zoom]]

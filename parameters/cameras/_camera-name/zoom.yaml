@@ -1,4 +1,5 @@
-zoom:
+parameter:
+    name: zoom
     parent: camera name
     required: no
     type: number

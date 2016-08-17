@@ -1,4 +1,4 @@
-sources:
+parameter:
     name: type
     parent: _source-name
     allowed-values: [GeoJSON, TopoJSON, MVT, Raster]

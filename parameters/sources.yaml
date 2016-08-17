@@ -1,4 +1,4 @@
-sources:
+parameter:
     name: sources
     parent: scene
     children: [_sources-name]

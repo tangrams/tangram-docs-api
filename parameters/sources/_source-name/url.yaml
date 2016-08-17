@@ -1,4 +1,4 @@
-sources:
+parameter:
     name: url
     parent: _source-name
     type: string

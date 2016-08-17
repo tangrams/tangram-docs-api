@@ -1,4 +1,4 @@
-sources:
+parameter:
     name: _source-name
     parent: sources
     children: [type, url]

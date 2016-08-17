@@ -1,4 +1,5 @@
-fov:
+parameter:
+    name: fov
     required: no
     types: number
     units: degrees

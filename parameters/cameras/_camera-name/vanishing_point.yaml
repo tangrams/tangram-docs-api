@@ -1,4 +1,5 @@
-vanishing_point:
+parameter:
+    name: vanishing_point
     required: no
     types: [[number, number]]
     units: px

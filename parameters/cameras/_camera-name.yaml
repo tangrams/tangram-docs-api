@@ -1,4 +1,5 @@
-camera-name:
+parameter:
+    name: _camera-name
     parent: cameras
     children: [type, position, zoom, active]
     required: yes

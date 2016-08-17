@@ -1,4 +1,5 @@
-active:
+parameter:
+    name: active
     required: no
     type: boolean
     allowed-values: [true, false]

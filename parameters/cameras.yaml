@@ -1,4 +1,4 @@
-cameras:
+parameter:
     name: cameras
     parent: scene
     children: [_camera-name]

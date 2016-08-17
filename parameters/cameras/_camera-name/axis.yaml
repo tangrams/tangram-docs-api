@@ -1,4 +1,5 @@
-axis:
+parameter:
+    name: axis
     required: no
     types: [[number, number]]
     units: none

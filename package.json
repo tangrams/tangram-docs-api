@@ -1,6 +1,6 @@
 {
   "name": "tangram-docs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tangram Documentation Library",
   "main": "app/index.js",
   "scripts": {
@@ -13,6 +13,5 @@
   "author": "Irene Alvarado",
   "license": "MIT",
   "homepage": "https://github.com/tangrams/tangram-docs-api#readme",
-  "dependencies": {
-  }
+  "dependencies": {}
 }

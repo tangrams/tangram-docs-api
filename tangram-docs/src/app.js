@@ -6,26 +6,31 @@ var path = require('path');
 var walk = require('walk');
 var walker = walk.walk("../../documentation");
 
-function flattenDocs () {
-    // var doc = yaml.safeLoad(fs.readFileSync(file, 'utf8'));
-    // console.log(doc.parameter);
+var object = {
+    parameters: []
+}
 
+function flattenDocs () {
     walker.on("file", fileHandler);
 }
 
 function fileHandler(root, fileStat, next) {
     let dir_file = path.resolve(root, fileStat.name);
+    let check = 'documentation/parameters/';
+    let rel_path = dir_file.substring(dir_file.indexOf(check) + check.length);
+    rel_path = rel_path.substring(0, rel_path.length - 5);
+    let split = rel_path.split('/');
 
     fs.readFile(dir_file, 'ascii', function (err, data) {
-        // console.log(data);
-
-        // var doc = yaml.load(data.toString());
-        // console.log(doc);
         if (endsWith(fileStat.name, '.yaml')) {
-            console.log(dir_file);
+            // console.log(fileStat.name);
+            console.log(split);
+            console.log("\n");
             var doc = yaml.safeLoad(data);
-            console.log(doc);
+            console.log(doc.parameter.name);
+            // console.log(doc);
         }
+
         next();
     });
 }

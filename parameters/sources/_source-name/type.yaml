@@ -1,8 +1,0 @@
-parameter:
-    name: type
-    parent: _source-name
-    allowed-values: [GeoJSON, TopoJSON, MVT, Raster]
-    required: yes
-    keyword: yes
-    description: Sets the type of the datasource. No default.
-    address: ^sources:(\\w|\\_|\\-|\/)+:type$

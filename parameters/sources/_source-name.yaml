@@ -1,8 +1,0 @@
-parameter:
-    name: _source-name
-    parent: sources
-    children: [type, url]
-    required: yes
-    keyword: no
-    description: Specifies the beginning of a source block.
-    address: ^sources:(\\w|\\_|\\-|\\/)+$

@@ -1,5 +1,6 @@
 {
-    "parameter": [
+    "name": "scene",
+    "children": [
         {
             "name": "cameras",
             "parent": "scene",

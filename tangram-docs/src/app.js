@@ -6,12 +6,10 @@ var path = require('path');
 var walk = require('walk');
 var walker = walk.walk('../../documentation');
 
-// var TreeModel = require('tree-model');
-// var tree = new TreeModel();
-// var root = tree.parse({ parameters: [] });
-
+// Root of the tree
 var object = {
-    parameter: []
+    name: 'scene',
+    children: []
 }
 
 function flattenDocs () {
@@ -26,7 +24,7 @@ function endsWith(str, suffix) {
 
 function fileHandler (root, fileStat, next) {
     let dir_file = path.resolve(root, fileStat.name);
-    let check = 'documentation/parameters/';
+    let check = 'documentation/scene/';
     let rel_path = dir_file.substring(dir_file.indexOf(check) + check.length);
     rel_path = rel_path.substring(0, rel_path.length - 5);
     let split = rel_path.split('/');
@@ -37,7 +35,7 @@ function fileHandler (root, fileStat, next) {
             // Add only the first level of the tree (level 1, i.e. sources, camera, globals, etc.
             if (split.length === 1) {
                 let firstNode = yaml.safeLoad(data);
-                object.parameter.push(firstNode.parameter);
+                object.children.push(firstNode.parameter);
             }
         }
 
@@ -46,11 +44,11 @@ function fileHandler (root, fileStat, next) {
 }
 
 function endHandler () {
-    let first_path = '../../documentation/parameters/';
+    let first_path = '../../documentation/scene/';
 
     console.log("Recursively iterating through the tree...", "\n")
-    for (let i = 0; i < object.parameter.length; i++) {
-        object.parameter[i] = recursiveAdd(object.parameter[i], first_path);
+    for (let i = 0; i < object.children.length; i++) {
+        object.children[i] = recursiveAdd(object.children[i], first_path);
     }
 
     writeJSON(object);

@@ -1,6 +1,6 @@
 {
   "name": "tangram-docs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tangram Documentation Library",
   "main": "tangram-docs/dist/index.js",
   "scripts": {

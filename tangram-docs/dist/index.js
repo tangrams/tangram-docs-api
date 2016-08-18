@@ -1,5 +1,3 @@
-'use strict';
-
 let TreeModel = require('tree-model');
 let tree = new TreeModel();
 

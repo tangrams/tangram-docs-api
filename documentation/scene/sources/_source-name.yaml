@@ -5,4 +5,4 @@ parameter:
     required: yes
     keyword: no
     description: Specifies the beginning of a source block.
-    address: ^sources:(\\w|\\_|\\-|\\/)+$
+    address: ^sources:(\w|\_|\-|\/)+$

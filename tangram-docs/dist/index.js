@@ -5,73 +5,45 @@ let tree = new TreeModel();
 
 let TANGRAM_DOCS = require('./tangram-docs.json');
 
-// import TANGRAM_DOCS from './tangram-docs.json';
-// console.log(TANGRAM_DOCS);
-
 let root = tree.parse(TANGRAM_DOCS);
-console.log(root.isRoot());
 
+// Find the first node that matches a predicate
+// The predicate in this case is matching a node by 'name'
+function findByName (name) {
+    let node = root.first(function (node) {
+        return node.model.name === name;
+    });
 
-root.walk(function (node) {
-    console.log(node);
-});
+    return node.model;
+}
 
-// export function match (address) {
-//     let currentTree = TANGRAM_DOCS.parameters;
-//     let split = address.split(':');
-//
-//     let partialAddress;
-//     let url = '';
-//     let currentNode;
-//
-//     // Iterate through each level of the tree until we find the right parameter node
-//     for (let i = 0; i < split.length; i++) {
-//         // Construct a partial address for each child in the tree
-//         if (i === 0) {
-//             partialAddress = split[0];
-//         }
-//         else {
-//             partialAddress = partialAddress + ':' + split[i];
-//         }
-//
-//         let found;
-//
-//         // On each level of the tree, check all nodes
-//         for (let node of currentTree) {
-//             found = partialAddress.match(node.address);
-//
-//             if (found !== null) {
-//                 currentNode = node;
-//                 currentTree = node.children;
-//
-//                 // Construct the url that contains the documentation for a particular parameter
-//                 // This is what we will render in our HTML
-//                 if (url === '') {
-//                     url = currentNode.name;
-//                 }
-//                 else {
-//                     url = url + '/' + currentNode.name;
-//                 }
-//
-//                 break;
-//             }
-//         }
-//
-//         // Check if the address is completely invalid - it doesn't really exist in the tree
-//         // If we never found a matching node and we are at the last level of the tree (the leaves)
-//         if (found === null && i === (split.length - 1)) {
-//             url = '';
-//         }
-//     }
-//
-//     return url;
-// }
+function findAllNodesMatchRegex(address) {
+    let node = root.all(function (node) {
+        let found = null;
 
-// export function getParameter (address) {
-//     let parameter = match(address);
-//
-//     let base_dir = '../documentation/';
-//     let final_dir = base_dir + parameter + '.yaml';
-//     console.log(final_dir);
-//
-// }
+        if (node.model.address !== undefined) {
+            found = address.match(node.model.address);
+        }
+
+        if (found !== null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+
+    return node;
+}
+
+export function findNode (address) {
+    let allMatchingNodes = findAllNodesMatchRegex(address);
+
+    if (allMatchingNodes.length === 0) {
+        return null;
+    }
+    else {
+        return allMatchingNodes[0].model;
+    }
+
+}

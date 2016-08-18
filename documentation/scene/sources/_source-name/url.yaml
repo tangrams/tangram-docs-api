@@ -5,4 +5,4 @@ parameter:
     required: yes
     keyword: yes
     description: Specifies the source's URL. No default.
-    address: ^sources:(\\w|\\_|\\-|\/)+:url$
+    address: ^sources:(\w|\_|\-|\/)+:url$

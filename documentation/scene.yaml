@@ -1,3 +1,4 @@
 parameter:
     name: scene
+    address: ^scene$
     children: [ sources, cameras ]

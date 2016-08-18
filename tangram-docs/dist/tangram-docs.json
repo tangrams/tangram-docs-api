@@ -1,5 +1,6 @@
 {
     "name": "scene",
+    "address": "^scene$",
     "children": [
         {
             "name": "sources",
@@ -21,7 +22,7 @@
                             "required": "yes",
                             "keyword": "yes",
                             "description": "Sets the type of the datasource. No default.",
-                            "address": "^sources:(\\\\w|\\\\_|\\\\-|\\/)+:type$"
+                            "address": "^sources:(\\w|\\_|\\-|\\/)+:type$"
                         },
                         {
                             "name": "url",
@@ -30,19 +31,19 @@
                             "required": "yes",
                             "keyword": "yes",
                             "description": "Specifies the source's URL. No default.",
-                            "address": "^sources:(\\\\w|\\\\_|\\\\-|\\/)+:url$"
+                            "address": "^sources:(\\w|\\_|\\-|\\/)+:url$"
                         }
                     ],
                     "required": "yes",
                     "keyword": "no",
                     "description": "Specifies the beginning of a source block.",
-                    "address": "^sources:(\\\\w|\\\\_|\\\\-|\\\\/)+$"
+                    "address": "^sources:(\\w|\\_|\\-|\\/)+$"
                 }
             ],
             "required": "yes",
             "keyword": "yes",
             "description": "The `sources` element is a required top-level element in a Tangram scene file. It declares the beginning of a sources block. It takes only one kind of parameter' the source name. Any number of source names can be declared.",
-            "address": "sources"
+            "address": "^sources$"
         },
         {
             "name": "cameras",
@@ -118,7 +119,7 @@
             "keyword": "yes",
             "since-version": "0.0.1",
             "description": "The `cameras` element is a required top-level element in the [scene file](Scene-file.md). Individual cameras are defined by a [camera name](#camera-name) under this element.",
-            "address": "cameras",
+            "address": "^cameras$",
             "examples": [
                 "```yaml\ncameras:\n    camera1:\n        type: perspective\n    camera2:\n        type: perspective\n    overview:\n        type: isometric\n```\n"
             ]

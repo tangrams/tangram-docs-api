@@ -6,7 +6,7 @@ parameter:
     keyword: yes
     since-version: 0.0.1
     description: The `cameras` element is a required top-level element in the [scene file](Scene-file.md). Individual cameras are defined by a [camera name](#camera-name) under this element.
-    address: cameras
+    address: ^cameras$
     examples:
         - |
             ```yaml

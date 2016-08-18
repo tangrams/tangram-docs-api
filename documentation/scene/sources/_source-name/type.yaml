@@ -5,4 +5,4 @@ parameter:
     required: yes
     keyword: yes
     description: Sets the type of the datasource. No default.
-    address: ^sources:(\\w|\\_|\\-|\/)+:type$
+    address: ^sources:(\w|\_|\-|\/)+:type$

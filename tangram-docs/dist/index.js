@@ -45,6 +45,20 @@ function _findAllNodesMatchRegex (address) {
     return node;
 }
 
+// Before returning a node, convert the children (stored as a tree) into an array of names
+function _convertChildrenToArray (listChildren) {
+    let children = [];
+
+    // For nodes that do not have children, we will default to return an empty array
+    if (listChildren !== undefined) {
+        for (let child of listChildren) {
+            children.push(child.name);
+        }
+    }
+
+    return children;
+}
+
 function findNode (address) {
     let allMatchingNodes = _findAllNodesMatchRegex(address);
 
@@ -52,6 +66,9 @@ function findNode (address) {
         return null;
     }
     else {
-        return allMatchingNodes[0].model;
+        let returnNode = allMatchingNodes[0].model;
+        returnNode.children = _convertChildrenToArray(returnNode.children);
+
+        return returnNode;
     }
 }

@@ -1,0 +1,3 @@
+parameter:
+    name: scene
+    children: [ sources, cameras ]

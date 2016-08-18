@@ -2,58 +2,25 @@
 
 var fs = require('fs');
 var yaml = require('js-yaml');
-var path = require('path');
-var walk = require('walk');
-var walker = walk.walk('../../documentation');
 
-// Root of the tree
-var object = {
-    name: 'scene',
-    children: []
+var object;
+
+function retrieveSceneFile () {
+    console.log("Adding first level scene node to tree...", "\n");
+    let sceneFilePath = '../../documentation/scene.yaml'
+    let sceneFile = fs.readFileSync(sceneFilePath, 'ascii');
+    let sceneFileYaml = yaml.safeLoad(sceneFile);
+    object = sceneFileYaml.parameter;
 }
 
-function flattenDocs () {
-    console.log("Adding first level nodes to the tree...", "\n");
-    walker.on('file', fileHandler);
-    walker.on('end', endHandler);
-}
-
-function endsWith(str, suffix) {
-    return str.indexOf(suffix, str.length - suffix.length) !== -1;
-}
-
-function fileHandler (root, fileStat, next) {
-    let dir_file = path.resolve(root, fileStat.name);
-    let check = 'documentation/scene/';
-    let rel_path = dir_file.substring(dir_file.indexOf(check) + check.length);
-    rel_path = rel_path.substring(0, rel_path.length - 5);
-    let split = rel_path.split('/');
-
-    fs.readFile(dir_file, 'ascii', function (err, data) {
-        if (endsWith(fileStat.name, '.yaml')) {
-
-            // Add only the first level of the tree (level 1, i.e. sources, camera, globals, etc.
-            if (split.length === 1) {
-                let firstNode = yaml.safeLoad(data);
-                object.children.push(firstNode.parameter);
-            }
-        }
-
-        next();
-    });
-}
-
-function endHandler () {
-    let first_path = '../../documentation/scene/';
+function buildDocsTree () {
+    let first_path = '../../documentation/';
 
     console.log("Recursively iterating through the tree...", "\n")
-    for (let i = 0; i < object.children.length; i++) {
-        object.children[i] = recursiveAdd(object.children[i], first_path);
-    }
+    object = recursiveAdd(object, first_path);
 
     writeJSON(object);
 }
-
 
 function recursiveAdd (node, base_path) {
         let children = node.children;
@@ -89,4 +56,5 @@ function writeJSON () {
     });
 }
 
-flattenDocs();
+retrieveSceneFile();
+buildDocsTree();

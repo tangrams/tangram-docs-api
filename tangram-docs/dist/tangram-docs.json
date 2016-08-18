@@ -2,6 +2,49 @@
     "name": "scene",
     "children": [
         {
+            "name": "sources",
+            "parent": "scene",
+            "children": [
+                {
+                    "name": "_source-name",
+                    "parent": "sources",
+                    "children": [
+                        {
+                            "name": "type",
+                            "parent": "_source-name",
+                            "allowed-values": [
+                                "GeoJSON",
+                                "TopoJSON",
+                                "MVT",
+                                "Raster"
+                            ],
+                            "required": "yes",
+                            "keyword": "yes",
+                            "description": "Sets the type of the datasource. No default.",
+                            "address": "^sources:(\\\\w|\\\\_|\\\\-|\\/)+:type$"
+                        },
+                        {
+                            "name": "url",
+                            "parent": "_source-name",
+                            "type": "string",
+                            "required": "yes",
+                            "keyword": "yes",
+                            "description": "Specifies the source's URL. No default.",
+                            "address": "^sources:(\\\\w|\\\\_|\\\\-|\\/)+:url$"
+                        }
+                    ],
+                    "required": "yes",
+                    "keyword": "no",
+                    "description": "Specifies the beginning of a source block.",
+                    "address": "^sources:(\\\\w|\\\\_|\\\\-|\\\\/)+$"
+                }
+            ],
+            "required": "yes",
+            "keyword": "yes",
+            "description": "The `sources` element is a required top-level element in a Tangram scene file. It declares the beginning of a sources block. It takes only one kind of parameter' the source name. Any number of source names can be declared.",
+            "address": "sources"
+        },
+        {
             "name": "cameras",
             "parent": "scene",
             "children": [
@@ -79,49 +122,6 @@
             "examples": [
                 "```yaml\ncameras:\n    camera1:\n        type: perspective\n    camera2:\n        type: perspective\n    overview:\n        type: isometric\n```\n"
             ]
-        },
-        {
-            "name": "sources",
-            "parent": "scene",
-            "children": [
-                {
-                    "name": "_source-name",
-                    "parent": "sources",
-                    "children": [
-                        {
-                            "name": "type",
-                            "parent": "_source-name",
-                            "allowed-values": [
-                                "GeoJSON",
-                                "TopoJSON",
-                                "MVT",
-                                "Raster"
-                            ],
-                            "required": "yes",
-                            "keyword": "yes",
-                            "description": "Sets the type of the datasource. No default.",
-                            "address": "^sources:(\\\\w|\\\\_|\\\\-|\\/)+:type$"
-                        },
-                        {
-                            "name": "url",
-                            "parent": "_source-name",
-                            "type": "string",
-                            "required": "yes",
-                            "keyword": "yes",
-                            "description": "Specifies the source's URL. No default.",
-                            "address": "^sources:(\\\\w|\\\\_|\\\\-|\\/)+:url$"
-                        }
-                    ],
-                    "required": "yes",
-                    "keyword": "no",
-                    "description": "Specifies the beginning of a source block.",
-                    "address": "^sources:(\\\\w|\\\\_|\\\\-|\\\\/)+$"
-                }
-            ],
-            "required": "yes",
-            "keyword": "yes",
-            "description": "The `sources` element is a required top-level element in a Tangram scene file. It declares the beginning of a sources block. It takes only one kind of parameter' the source name. Any number of source names can be declared.",
-            "address": "sources"
         }
     ]
 }

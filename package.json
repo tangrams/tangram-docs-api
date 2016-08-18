@@ -15,8 +15,7 @@
   "homepage": "https://github.com/tangrams/tangram-docs-api#readme",
   "dependencies": {
     "js-yaml": "^3.6.1",
-    "tree-model": "^1.0.4",
-    "walk": "^2.3.9"
+    "tree-model": "^1.0.4"
   },
   "browserify-shim": {
     "tangram": "global:Tangram"

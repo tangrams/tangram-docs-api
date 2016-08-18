@@ -1,13 +1,23 @@
-let TreeModel = require('tree-model');
-let tree = new TreeModel();
+'use strict';
 
+/* Module exports */
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.findNode = findNode;
+
+/* Functions */
+
+let TreeModel = require('tree-model');
 let TANGRAM_DOCS = require('./tangram-docs.json');
 
+let tree = new TreeModel();
 let root = tree.parse(TANGRAM_DOCS);
 
 // Find the first node that matches a predicate
 // The predicate in this case is matching a node by 'name'
-function findByName (name) {
+function _findByName (name) {
     let node = root.first(function (node) {
         return node.model.name === name;
     });
@@ -15,7 +25,8 @@ function findByName (name) {
     return node.model;
 }
 
-function findAllNodesMatchRegex(address) {
+// Find all nodes that match the regex of a certain address in our docs tree
+function _findAllNodesMatchRegex (address) {
     let node = root.all(function (node) {
         let found = null;
 
@@ -34,8 +45,8 @@ function findAllNodesMatchRegex(address) {
     return node;
 }
 
-export function findNode (address) {
-    let allMatchingNodes = findAllNodesMatchRegex(address);
+function findNode (address) {
+    let allMatchingNodes = _findAllNodesMatchRegex(address);
 
     if (allMatchingNodes.length === 0) {
         return null;
@@ -43,5 +54,4 @@ export function findNode (address) {
     else {
         return allMatchingNodes[0].model;
     }
-
 }

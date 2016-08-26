@@ -2,7 +2,7 @@
 
 NPM library Prototype: [https://www.npmjs.com/package/tangram-docs](https://www.npmjs.com/package/tangram-docs)
 
-## Documentation Folder
+## Documentation folder
 
 Contains the yaml files that specify information for each Tangram parameter
 
